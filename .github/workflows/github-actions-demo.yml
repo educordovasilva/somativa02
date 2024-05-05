@@ -14,14 +14,13 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: |
-        pip install Flask
+      run: |        
         npm install htmlhint --global
 
     - name: Build Docker image
       run: |
-        docker build -t USUARIO/PROJETO:latest .
-        docker push USUARIO/PROJETO:latest
+        docker build -t educordovasilva/somativa02:latest .
+        docker push educordovasilva/somativa02:latest
 
   test-job:
     runs-on: ubuntu-latest
@@ -33,12 +32,11 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install dependencies
-      run: |
-        pip install Flask
+      run: |        
         npm install htmlhint --global
 
     - name: Run SAST test
-      run: htmlhint https://example.com/index.html
+      run: htmlhint https://educordovasilva.github.io/somativa02/
 
   deploy-job:
     runs-on: ubuntu-latest
