@@ -51,5 +51,6 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t educordovasilva/somativa02:latest .
+        docker push educordovasilva/somativa02:latest
         docker run -d -p 8080:80 educordovasilva/somativa02
 
